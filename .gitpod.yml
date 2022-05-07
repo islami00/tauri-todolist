@@ -1,0 +1,20 @@
+image:
+  file: .github/dockerfiles/Dockerfile.ubuntu-base
+  context: .github
+# tasks:
+  # - name: Initial setup
+  #   init: sh scripts/init.sh
+  # - name: Server
+  #   init: gp sync-await setup
+  #   command: mix phx.server 
+  # - name: Frontend-TS
+  #   init: gp sync-await setup
+  #   command: cd ../mazaryn-front && npm run dev
+  # - name: Frontend-JS
+  #   init: gp sync-await setup
+  #   command: cd ../mazaryn-frontend && npm run dev
+vscode:
+  extensions:
+    - matklad.rust-analyzer
+    - serayuzgur.crates
+    - bungcip.better-toml
