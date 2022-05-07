@@ -6,7 +6,7 @@ tasks:
     init: sh scripts/init.sh
   - name: Server
     init: gp sync-await setup
-    command: ./target/debug/app 
+    command: ./src-tauri/target/debug/app 
   - name: Frontend-TS
     init: gp sync-await setup
     command: yarn run dev
