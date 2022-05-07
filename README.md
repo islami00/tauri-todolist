@@ -13,9 +13,14 @@ Otherwise, follow the setup instructions on [Tauri](https://tauri.studio/docs/ge
 
 ### Running it
 
-You can get started in dev with: `yarn run dev`
-Run both UI and the app backend with: `yarn run tauri dev`
-Or Compile App alone with: `cd src-tauri && cargo build --no-default-features`
-And run the app with: `./src-tauri/target/debug/app`
+* You can get started in dev with: `yarn run dev`
+* Run both UI and the app backend with: `yarn run tauri dev`
+* Or Compile App alone with: `cd src-tauri && cargo build --no-default-features` ,
+* and run the app with: `./src-tauri/target/debug/app`
 
 Let's have fun!
+
+### Read more
+
+* More on Xstate: https://xstate.js.org/docs/
+* More on Mantine: https://mantine.dev/getting-started/
