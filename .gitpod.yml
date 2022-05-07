@@ -1,18 +1,16 @@
 image:
   file: .github/dockerfiles/Dockerfile.ubuntu-base
   context: .github
-# tasks:
-  # - name: Initial setup
-  #   init: sh scripts/init.sh
-  # - name: Server
-  #   init: gp sync-await setup
-  #   command: mix phx.server 
-  # - name: Frontend-TS
-  #   init: gp sync-await setup
-  #   command: cd ../mazaryn-front && npm run dev
-  # - name: Frontend-JS
-  #   init: gp sync-await setup
-  #   command: cd ../mazaryn-frontend && npm run dev
+tasks:
+  - name: Initial setup
+    init: sh scripts/init.sh
+  - name: Server
+    init: gp sync-await setup
+    command: ./target/debug/app 
+  - name: Frontend-TS
+    init: gp sync-await setup
+    command: npm run dev
+
 vscode:
   extensions:
     - matklad.rust-analyzer
