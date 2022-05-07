@@ -9,7 +9,11 @@ tasks:
     command: ./target/debug/app 
   - name: Frontend-TS
     init: gp sync-await setup
-    command: npm run dev
+    command: yarn run dev
+  # Optionally, do both at once.
+  # - name: Tauri dev
+  #   init: gp sync-await setup
+  #   command: yarn run tauri dev
 
 vscode:
   extensions:
