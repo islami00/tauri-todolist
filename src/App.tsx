@@ -1,10 +1,33 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import logo from "./logo.svg";
+import "./App.css";
 import { Button } from "@mantine/core";
+import { createMachine, assign } from "xstate";
+import { useMachine } from "@xstate/react";
 
+interface ToggleContext {
+  count: number;
+}
+
+const toggleMachine = createMachine<ToggleContext>({
+  id: "toggle",
+  initial: "inactive",
+  context: {
+    count: 0,
+  },
+  states: {
+    inactive: {
+      on: { TOGGLE: "active" },
+    },
+    active: {
+      entry: assign({ count: (ctx) => ctx.count + 1 }),
+      on: { TOGGLE: "inactive" },
+    },
+  },
+});
 function App() {
-  const [count, setCount] = useState(0)
+  const [current, send] = useMachine(toggleMachine);
+  const active = current.matches("active");
+  const { count } = current.context;
 
   return (
     <div className="App">
@@ -12,9 +35,14 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
-          <Button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
+          <Button type="button" onClick={() => send("TOGGLE")}>
+            Click me ({active ? "✅" : "❌"})
           </Button>
+        </p>
+        <p>
+          <code>
+            Toggled <strong>{count}</strong> times
+          </code>
         </p>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
@@ -43,4 +71,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
