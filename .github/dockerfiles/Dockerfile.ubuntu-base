@@ -1,5 +1,5 @@
-FROM gitpod/gitpod/workspace-full
-ARG tauriDeps="libwebkit2gtk-4.0-dev \
+FROM gitpod/workspace-full
+ARG TAURI_DEPS="libwebkit2gtk-4.0-dev \
     build-essential \
     curl \
     wget \
@@ -7,4 +7,4 @@ ARG tauriDeps="libwebkit2gtk-4.0-dev \
     libgtk-3-dev \
     libappindicator3-dev \
     librsvg2-dev"
-RUN DEBIAN_FRONTEND=noninteractive sudo apt update && sudo apt install ${tauriDeps}
+RUN DEBIAN_FRONTEND=noninteractive sudo apt update && sudo apt install ${TAURI_DEPS} -y
