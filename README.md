@@ -24,3 +24,4 @@ Let's have fun!
 
 * More on Xstate: https://xstate.js.org/docs/
 * More on Mantine: https://mantine.dev/getting-started/
+
